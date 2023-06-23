@@ -210,23 +210,30 @@ I CLI file editor molto spesso installati su linux by default sono:
 
     `operator+motion` eseguibili in normal mode:
 
-    - `d` delete:
+    - `d`|`c` delete/cut:
       - `dd` delete line
       - `dw` delete next word
       - `db` delete prev word
       - `df<char>` cancella fino alla prima occorrenza di `<char>` compresa
       - `dt<char>` cancella fino alla prima occorrenza di `<char>` esclusa
-      - `dip` delete inner paragraph (utile per tagliare l'intera implementazione di una funzione)
-      - `dap` delete all paragraph (utile per tagliare una funzione intera)
     - `y` copy:
       - `yy` copia line
       - `yw` copia next word
       - `yb` copia prev word
       - `yf<char>` copia fino alla prima occorrenza di `<char>` compresa
       - `yt<char>` copia fino alla prima occorrenza di `<char>` esclusa
-    - `x` copia next char
+    - `r` replace char
+    - `~` toggle selected text case
+    - `x` delete next char
     - `p` paste after cursor
     - `P` paste before cursor
+
+    Gli operatori `y`,`d`,`c` e la `visual mode` supportano gli [object selection](https://vimhelp.org/motion.txt.html#object-select),
+    permettendo motion molto utili (sono permutabilli, per cui sono validi `diw`,`yiw`,`viw`):
+
+    - `dip`, delete inner paragraph
+    - `yi"`, copy text surrounded by `"`
+    - `da'`, delete text and surrounding `'`
 
     `number` è opzionale e serve a ripetere `operator+motion` più volte.
 
